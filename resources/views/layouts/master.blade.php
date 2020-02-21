@@ -4,9 +4,8 @@
     <meta charset="utf-8">
     <title>Scule.MD</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet" >
-    <link href="css/jumbotron.css" rel="stylesheet">
-
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{asset('css/jumbotron.css')}}" rel="stylesheet">
      </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">

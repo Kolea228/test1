@@ -18,7 +18,18 @@ class IndexController extends Controller
                                     'articles'=>$articles]);
         
     }
+    protected $ms;
+    protected $hw;
+    public function __construct()
+    {
+     $this->hw = 'Hello World!!!';
+     $this->ms = 'This is a template for a simple ' ;  
+    }
     public function page1(){
         return view('page1');
     }
+    public function show($id) {
+        $article = Article::select(['id', 'title', 'text','img', 'description'])->where('id', $id)->first();
+        return view('article-content')->with(['ms'=>$this->ms, 'hw' => $this ->hw, 'article' => $article]);
+     }
 }
