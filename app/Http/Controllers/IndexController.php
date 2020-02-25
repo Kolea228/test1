@@ -32,4 +32,18 @@ class IndexController extends Controller
         $article = Article::select(['id', 'title', 'text','img', 'description'])->where('id', $id)->first();
         return view('article-content')->with(['ms'=>$this->ms, 'hw' => $this ->hw, 'article' => $article]);
      }
+
+     public function add(){
+        return view('add-content')->with(['hw'=> $this->hw, 'ms'=>$this->ms]);
+     }
+     public function store(Request $request){
+         $this->validate($request,['title' => 'required | max:50', 
+                                   'description' => 'required | max:200', 
+                                   'text' => 'required' ]);
+        $data = $request->all();
+        $article = new Article;
+        $article-> fill($data);
+        $article->save();
+        return redirect('/');
+     }
 }

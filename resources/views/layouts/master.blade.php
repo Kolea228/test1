@@ -14,7 +14,7 @@
            <a class="navbar-brand" href="/">Scule.md</a>
         </div>
         <div class="links">
-          <a href="https://laravel.com/docs">Docs</a>
+          <a href="/page/add">New Lyer</a>
           <a href="https://laracasts.com">Laracasts</a>
           <a href="https://laravel-news.com">News</a>
           <a href="https://blog.laravel.com">Blog</a>
@@ -25,9 +25,18 @@
          </div>
        </div>
     </nav>
+    @if(count($errors)>0)
+  <div class="alert alert-danger">
+    <ul>
+      @foreach($errors->all() as $error)
+      <li>{{$error}}</li>
+      @endforeach
+    </ul>
+    @endif
     @yield('content')
     <footer class="container">
   <p>&copy; 2020 Company, Inc.</p>
 </footer>
+
 </body>
 </html>
